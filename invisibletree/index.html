@@ -3,14 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="realtre.webp">
     <title>Invisible tree</title>
-    <style>body {
-    background-color: black;
-    }
+
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+        }
+
+        #tree {
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        #video {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+        }
     </style>
 </head>
+
 <body>
-<img src="realtree.gif" style="display: block; margin: 0 auto; cursor: default;" alt="Return">
+
+    <img id="tree" src="realtree.gif" alt="Return">
+
+    <video id="video" loop playsinline>
+        <source src="man.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        const tree = document.getElementById("tree");
+        const video = document.getElementById("video");
+
+        tree.addEventListener("click", () => {
+
+            if (Math.random() < 0.05) {
+
+                tree.style.display = "none";
+
+                video.style.display = "block";
+
+                video.play();
+
+            } else {
+
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+
 </body>
 </html>
